@@ -4,6 +4,7 @@ package org.rapidpm.frp.v006;
 import static org.rapidpm.frp.v006.MathService.mathTaskFunction;
 import static org.rapidpm.frp.v006.MathService.validate;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 import org.rapidpm.frp.model.Pair;
@@ -54,7 +55,7 @@ public class Main {
 //    Boolean result = resultBiFkt
 //        .andThen(validate())
 //        .apply(humanResult , mathTaskFunction().apply(maxResultValue));
-
+//
 
     //v005 - A
 //    final Function<Integer, MathTask> mathTaskFunction = mathTaskFunction();
@@ -72,11 +73,11 @@ public class Main {
 //    Boolean aBoolean = finalFkt.apply(maxResultValue);
 
     //v005 - B
-    final Function<Pair<MathTask, Integer>, MathTaskResult> mapToMathTaskResult
-        = (resultPair) -> new MathTaskResult(resultPair.getT1() , resultPair.getT2());
-//
 //    final Function<Integer, Pair<MathTask, Integer>> integerPairFunction = mathTaskFunction()
 //        .andThen(mathTask -> new Pair<>(mathTask , humanResult));
+//
+//    final Function<Pair<MathTask, Integer>, MathTaskResult> mapToMathTaskResult
+//        = (resultPair) -> new MathTaskResult(resultPair.getT1() , resultPair.getT2());
 //
 //    Boolean aBoolean = integerPairFunction
 //        .andThen(mapToMathTaskResult)
@@ -92,6 +93,9 @@ public class Main {
 
 
     final MathTask mathTask = mathTaskFunction().apply(maxResultValue); //t1 - show the values on Screen
+
+    final Function<Pair<MathTask, Integer>, MathTaskResult> mapToMathTaskResult
+        = (resultPair) -> new MathTaskResult(resultPair.getT1() , resultPair.getT2());
 
     final Boolean aBoolean = mapToMathTaskResult //t2 - button was pressed
         .andThen(validate())
