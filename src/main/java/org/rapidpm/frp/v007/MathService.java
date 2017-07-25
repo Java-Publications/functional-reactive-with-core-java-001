@@ -26,7 +26,6 @@ public interface MathService {
                              mathTaskResult.getMathTask().getResult();
   }
 
-
   static Function<Pair<MathTask, Integer>, MathTaskResult> mapToMathTaskResult(){
     return (resultPair) -> new MathTaskResult(resultPair.getT1() , resultPair.getT2());
   }
